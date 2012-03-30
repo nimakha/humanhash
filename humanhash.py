@@ -22,3 +22,12 @@ class HumanHash(object):
 
   def hexdigest(self):
     return self.h.hexdigest()
+
+  def _rebase(self, num_in, radices = [401, 121, 75]):
+    self.period = len(radices)
+    self.position = 0
+    while num_in > 0:
+      self.radix = radices[self.position % self.period]
+      yield num_in % self.radix
+      num_in = num_in / self.radix
+      self.position = self.position + 1
