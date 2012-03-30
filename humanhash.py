@@ -23,6 +23,9 @@ class HumanHash(object):
   def hexdigest(self):
     return self.h.hexdigest()
 
+  def _hex_to_int(self, hex_in):
+    return int("0x" + hex_in, 16)
+
   def _rebase(self, num_in, radices = [401, 121, 75]):
     self.period = len(radices)
     self.position = 0
