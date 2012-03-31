@@ -1,3 +1,5 @@
+import sys
+
 class HumanHash(object):
   def __init__(self, msg = None, digestmod = None):
     if digestmod == None:
@@ -31,6 +33,13 @@ class HumanHash(object):
     self.position = 0
     while num_in > 0:
       self.radix = radices[self.position % self.period]
-      yield num_in % self.radix
+      yield int(num_in % self.radix)
       num_in = num_in / self.radix
       self.position = self.position + 1
+
+def main():
+  h = HumanHash()
+  print list(h._rebase(h._hex_to_int(h.hexdigest())))
+
+if __name__ == "__main__":
+  sys.exit(main())
