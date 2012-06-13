@@ -66,7 +66,21 @@ class HumanHash(object):
                     num_in = num_in / unit.length()
             self.l.reverse()
             yield self.l[0][0].capitalize() + " ".join(self.l)[1:] + "."
-        
+
+    def sentence(self, sstruct = None):
+        return self._sentence(self._hex_to_int(self.hexdigest()), sstruct)
+
+    def paragraph(self, length = None, sstruct = None):
+        paragraph = []
+        self.s = self.sentence(sstruct = sstruct)
+        while length > 0 or length == None:
+            try:
+                paragraph.append(self.s.next())
+            except StopIteration:
+                break
+            if length != None: length -= 1
+        return "\n".join(paragraph)
+
 def main():
     h = HumanHash()
     print "\n".join(list(h._sentence(h._hex_to_int(h.hexdigest()))))
