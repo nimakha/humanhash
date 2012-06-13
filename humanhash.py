@@ -3,6 +3,17 @@ import sys
 from wordlists import Noun, Adjective, Verb_3rd
 import hashlib
 
+class IdentHash(object):
+    def __init__(self, msg = ""):
+        self._digest = msg
+
+    def update(self, msg):
+        self._digest += msg
+
+    def hexdigest(self):
+        return self._digest
+
+
 class HumanHash(object):
     def __init__(self, msg = None, algorithm = "sha512", sstruct = None):
     
