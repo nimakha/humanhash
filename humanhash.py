@@ -1,3 +1,4 @@
+#!/usr/bin/env python
 import sys
 from wordlists import Noun, Adjective, Verb_3rd
 
