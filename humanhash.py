@@ -1,19 +1,12 @@
 #!/usr/bin/env python
 import sys
 from wordlists import Noun, Adjective, Verb_3rd
+import hashlib
 
 class HumanHash(object):
-    def __init__(self, msg = None, digestmod = None, sstruct = None):
-        if digestmod == None:
-            import hashlib
-            digestmod = hashlib.sha512
-
-        if hasattr(digestmod, '__call__'):
-            self.digest_cons = digestmod
-        else:
-            self.digest_cons = lambda d='': digestmod.new(d)
+    def __init__(self, msg = None, algorithm = "sha512", sstruct = None):
     
-        self.h = self.digest_cons()
+        self.h = hashlib.new(algorithm)
 
         if msg != None:
             self.update(msg)
