@@ -37,6 +37,10 @@ class HumanHash(object):
     def update(self, msg):
         self.h.update(msg)
 
+    def update_from_file(self, f):
+        for block in iter(lambda: f.read(self.h.block_size), ''):
+            self.h.update(block)
+
     def digest(self):
         return self.h.digest()
 
