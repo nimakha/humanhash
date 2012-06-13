@@ -27,6 +27,8 @@ class HumanHash(object):
         else:
             self.sstruct = sstruct
 
+    algorithms = hashlib.algorithms
+
     def update(self, msg):
         self.h.update(msg)
 
