@@ -50,15 +50,6 @@ class HumanHash(object):
     def _hex_to_int(self, hex_in):
         return int("0x" + hex_in, 16)
 
-    def _rebase(self, num_in, radices = [401, 121, 75]):
-        self.period = len(radices)
-        self.position = 0
-        while num_in > 0:
-            self.radix = radices[self.position % self.period]
-            yield int(num_in % self.radix)
-            num_in = num_in / self.radix
-            self.position = self.position + 1
-
     def _sentence(self, num_in, sstruct = None):
         if sstruct == None:
             sstruct = self.sstruct
