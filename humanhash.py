@@ -15,9 +15,14 @@ class IdentHash(object):
 
 
 class HumanHash(object):
-    def __init__(self, msg = None, algorithm = "sha512", sstruct = None):
+    def __init__(self, msg = None, algorithm = None, sstruct = None):
     
-        self.h = hashlib.new(algorithm)
+        if algorithm == None:
+            self.h = hashlib.new("sha512")
+        elif algorithm == "ident":
+            self.h = IdentHash()
+        else:
+            self.h = hashlib.new(algorithm)
 
         if msg != None:
             self.update(msg)
