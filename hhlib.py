@@ -14,7 +14,7 @@ class IdentHash(object):
         return self._digest
 
 
-class HumanHash(object):
+class HH(object):
     def __init__(self, msg = None, algorithm = None, sstruct = None):
     
         if algorithm == None:
