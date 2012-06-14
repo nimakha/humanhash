@@ -92,10 +92,10 @@ def main():
     args = parser.parse_args()
 
     if args.hex:
-        h = HumanHash(algorithm = "ident")
+        h = HH(algorithm = "ident")
         h.update(args.input)
     else:
-        h = HumanHash(algorithm = args.algorithm)
+        h = HH(algorithm = args.algorithm)
         if args.input == "-" or args.input == None:
             h.update_from_file(sys.stdin)
         else:
