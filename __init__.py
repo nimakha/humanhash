@@ -1,1 +1,3 @@
-__all__ = ["hhlib"]
+from hhlib import HH
+
+__all__ = ["HH"]
