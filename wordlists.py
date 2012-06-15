@@ -182,7 +182,7 @@ class Noun(Word):
         'Hamilton',
         'hamlet',
         'handiwork',
-        'headwaters',
+        'headwater',
         'hemisphere',
         'hideaway',
         'highchair',
