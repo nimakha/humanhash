@@ -1,0 +1,37 @@
+#!/usr/bin/env python
+import sys
+from hhlib import HH
+
+def main():
+    import argparse
+    parser = argparse.ArgumentParser(description = "Represent cryptographic hashes as English sentences.")
+    parser.add_argument("input", type = str, default = None, nargs = "?",
+                        help = "file to read, use '-' or leave unspecified to read from stdin")
+    parser.add_argument("-x", "--hex", action = "store_true",
+                        help = "specifies that input is in the form of a pre-computed hexadecimal number, rather than a filename")
+    parser.add_argument("-n", "--length", type = int, default = None,
+                        help = "length, in number of sentences")
+    parser.add_argument("-a", "--algorithm", type = str, choices = HH.algorithms, default = "sha512",
+                        help = "algorithm used to compute the cryptographic digest, defaults to sha512")
+    parser.add_argument("-m", "--mnemonic", action = "store_true",
+                        help = "instead of generating a paragraph, produce a two-word mnemonic codename")
+    args = parser.parse_args()
+
+    if args.hex:
+        h = HH(algorithm = "ident")
+        h.update(args.input)
+    else:
+        h = HH(algorithm = args.algorithm)
+        if args.input == "-" or args.input == None:
+            h.update_from_file(sys.stdin)
+        else:
+            with open(args.input, "r") as f:
+                h.update_from_file(f)
+
+    if args.mnemonic:
+        print h.paragraph(length = 1, sstruct = [Noun, Adjective])
+    else:
+        print h.paragraph(length = args.length)
+
+if __name__ == "__main__":
+    sys.exit(main())
