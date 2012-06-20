@@ -1,12 +1,13 @@
 class Word(object):
     def __init__(self, list):
         self._list = list
+        self._length = len(list)
 
     def word(self, n):
         return self._list[n]
 
     def length(self):
-        return len(self._list)
+        return self._length
 
 Noun = Word([
     'aardvark',
