@@ -13,7 +13,7 @@ class IdentHash(object):
 
 
 class HH(object):
-    def __init__(self, msg = None, algorithm = None, sstruct = None):
+    def __init__(self, msg = None, algorithm = None, struct = None):
     
         if algorithm == None:
             self.h = hashlib.new("sha512")
@@ -25,10 +25,10 @@ class HH(object):
         if msg != None:
             self.update(msg)
 
-        if sstruct == None:
-            self.sstruct = [Noun, Adjective, Verb_3rd, Noun]
+        if struct == None:
+            self.struct = [[Noun, Adjective, Verb_3rd, Noun], [Noun, Verb_3rd, Noun]]
         else:
-            self.sstruct = sstruct
+            self.struct = struct
 
     algorithms = hashlib.algorithms
 
@@ -48,24 +48,26 @@ class HH(object):
     def _hex_to_int(self, hex_in):
         return int("0x" + hex_in, 16)
 
-    def _sentence(self, num_in, sstruct = None):
-        if sstruct == None:
-            sstruct = self.sstruct
+    def _sentence(self, num_in, struct = None):
+        if struct == None:
+            struct = self.struct
+        i = 0
         while num_in > 0:
             self.l = []
-            for unit in sstruct:
+            for unit in struct[i]:
                 if num_in > 0:
                     self.l.append(unit.word(int(num_in % unit.length())))
                     num_in = num_in / unit.length()
             self.l.reverse()
             yield self.l[0][0].capitalize() + " ".join(self.l)[1:] + "."
+            i = (i + 1) % len(struct)
 
-    def sentence(self, sstruct = None):
-        return self._sentence(self._hex_to_int(self.hexdigest()), sstruct)
+    def sentence(self, struct = None):
+        return self._sentence(self._hex_to_int(self.hexdigest()), struct)
 
-    def paragraph(self, length = None, sstruct = None):
+    def paragraph(self, length = None, struct = None):
         paragraph = []
-        self.s = self.sentence(sstruct = sstruct)
+        self.s = self.sentence(struct = struct)
         while length > 0 or length == None:
             try:
                 paragraph.append(self.s.next())
