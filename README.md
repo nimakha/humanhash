@@ -18,6 +18,7 @@ API
 ---
 
 ~~~~~
+python setup.py install
 import hhlib
 h = hhlib.HH(msg = message, algorithm = "sha512")
 h.update(message)
