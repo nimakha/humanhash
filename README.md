@@ -55,7 +55,7 @@ codenames for revisions of the bylaws. See example usage on
 LICENSE
 -------
 
-Copyright © 2011 - 2012 by Nima Khazaei.
+Copyright © 2011--2012 by Nima Khazaei.
 
 Permission to use, copy, modify, and/or distribute this software for any 
 purpose with or without fee is hereby granted, provided that the above 
