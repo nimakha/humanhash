@@ -14,6 +14,22 @@ humanhash [-h] [-x] [-n LENGTH]
           [input]
 ~~~~~
 
+`-h, --help`
+  shows a short help message
+
+`-x, --hex`
+  specifies that input is in the form of a pre-computed hexadecimal number, 
+  rather than a filename
+
+`-n, --length` *LENGTH*
+  length of output, in number of sentences
+
+`-a, --algorithm` *{md5,sha1,sha224,sha256,sha384,sha512}*
+  algorithm used to compute the cryptographic digest, defaults to sha512
+
+`-m, --mnemonic`
+  instead of generating a paragraph, produces a two-word mnemonic codename
+
 API
 ---
 
