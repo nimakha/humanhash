@@ -1,5 +1,6 @@
 HumanHash
 ========
+
 An algorithm for generating natural-language-based cryptographic hashes.
 
 * * * * *
@@ -25,6 +26,7 @@ h.paragraph(length)
 
 LICENSE
 -------
+
 Copyright © 2012 by Nima Khazaei.
 
 Permission to use, copy, modify, and/or distribute this software for any 
