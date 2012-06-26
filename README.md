@@ -55,6 +55,9 @@ codenames for revisions of the bylaws. See example usage on
 LICENSE
 -------
 
+This implementation of HumanHash is published under the terms of the
+[ISC License](http://www.isc.org/software/license).
+
 Copyright © 2011-2012 by Nima Khazaei.
 
 Permission to use, copy, modify, and/or distribute this software for any 
