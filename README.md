@@ -34,11 +34,12 @@ API
 ---
 
 ~~~~~
-python setup.py install
-import hhlib
-h = hhlib.HH(msg = message, algorithm = "sha512")
-h.update(message)
-h.paragraph(length)
+$ python setup.py install
+
+>>> import hhlib
+>>> h = hhlib.HH(msg = message, algorithm = "sha512")
+>>> h.update(message)
+>>> h.paragraph(length)
 ~~~~~
 
 HISTORY
