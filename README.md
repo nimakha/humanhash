@@ -48,7 +48,7 @@ HISTORY
 The HumanHash algorithm was originally conceived and implemented as 
 [All Hands Active](http://allhandsactive.com/), the first hackerspace in Ann 
 Arbor, MI, was working on ratifying its first bylaws, around January 2011. 
-HumanHash was used as a mechanism to for generating unambiguous, deterministic 
+HumanHash was used as a mechanism for generating unambiguous, deterministic 
 codenames for revisions of the bylaws. See example usage on 
 [AHA's mailing list](http://goo.gl/CVF1F).
 
